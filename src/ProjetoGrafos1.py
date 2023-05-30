@@ -1,15 +1,23 @@
+#importando as bibliotecas
 import networkx as nx
 import matplotlib.pyplot as plt
 
+#Criando a Classe Grafo para guardar as informações  
 class Grafo:
 
     def __init__(self):
 
+        #Inicializa o Grafo da Biblioteca networkx
         self.G = nx.Graph()
 
+        #Cria o vetor para guardar os nomes dos Prédios 
         self.listaNomes = [None] * 250
 
     def InserirVertice(self, Numero, Nome):
+
+        #Verifica se o Prédio já está no grafo,
+        #se não estiver: Insere o Prédio no Grafo, Insere o Nome do Prédio na lista de nomes e retorna True
+        #se estiver: retorna False 
 
         if Numero not in self.G.nodes():
 
@@ -23,6 +31,10 @@ class Grafo:
 
     def RemoverVertice(self, Numero):
 
+        #Verifica se o Prédio já está no grafo,
+        #se estiver: Remove o Prédio no Grafo, Remove o Nome do Prédio na lista de nomes e retorna True
+        #se não estiver: retorna False 
+
         if Numero in self.G.nodes():
 
             self.G.remove_node(Numero)
@@ -35,6 +47,10 @@ class Grafo:
 
     def InserirAresta(self, Saida, Entrada, Valor):
 
+        #Verifica se a Aresta já está no grafo,
+        #se não estiver: Insere a Aresta no Grafo e retorna True
+        #se estiver: retorna False
+
         if (Saida,Entrada) not in self.G.edges():
             
             self.G.add_edge(Saida, Entrada, weight=Valor)
@@ -44,6 +60,10 @@ class Grafo:
         return False
         
     def RemoverAresta(self, Saida, Entrada):
+
+        #Verifica se a Aresta já está no grafo,
+        #se estiver: Remove a Aresta no Grafo e retorna True
+        #se não estiver: retorna False
 
         if (Saida,Entrada) in self.G.edges():
 
@@ -55,8 +75,10 @@ class Grafo:
            
     def MostrarGrafo(self):
 
+        #Posição dinâmica para os Prédios recém inseridos  
         positionX = 10
 
+        #Posição dos Prédios do Mackenzie  
         pos = {
             1: (31, 57),
             2: (35, 59),
@@ -104,6 +126,7 @@ class Grafo:
             52: (76, 36)
         }
 
+        #Adiciona as posições do Prédios recém inseridos
         for vertex in self.G.nodes():
             
             if vertex not in pos:
@@ -111,12 +134,15 @@ class Grafo:
                 pos[vertex] = (positionX, 10)
 
                 positionX = positionX + 5
-                
+
+        #Printa o Grafo
         nx.draw(self.G, pos=pos, with_labels=True)
         
         plt.show()
     
     def Conexidade(self):
+
+        #informa se o Grafo é conexo ou não
 
         conexo = nx.is_connected(self.G)
 
@@ -134,10 +160,12 @@ class Grafo:
 
         peso_aresta = 0
 
+        #Utiliza o Algoritmo de Dijkstra para descobrir o menor caminho entre 2 Prédios 
         caminho_mais_curto = nx.dijkstra_path(self.G, Saida, Entrada)
 
         caminhos = [(caminho_mais_curto[i], caminho_mais_curto[i+1]) for i in range(len(caminho_mais_curto)-1)]
 
+        #Posição dos Prédios do Mackenzie
         pos = {
             1: (31, 57),
             2: (35, 59),
@@ -185,6 +213,7 @@ class Grafo:
             52: (76, 36)
         }
 
+        #Adiciona as posições do Prédios recém inseridos
         for vertex in self.G.nodes():
             
             if vertex not in pos:
@@ -199,18 +228,20 @@ class Grafo:
 
         default_edge_color = 'black'
 
+        #Muda a cor dos Vertices para vermelho se o Vertice faz parte do caminho mínimo  
         node_colors = [selected_node_color if node in caminho_mais_curto else default_node_color for node in self.G.nodes]
 
+        #Muda a cor das Arestas para vermelho se a Aresta faz parte do caminho mínimo
         edge_colors = [selected_node_color if node in caminhos else default_edge_color for node in self.G.edges]
                 
         nx.draw(self.G, pos=pos, node_color=node_colors, edge_color=edge_colors, with_labels=True)
 
-        print("Distancia total: ", caminho_mais_curto, "\n")
-
+        #Calcula a distancia total do percurso 
         for i in range(len(caminho_mais_curto) - 1):
 
             peso_aresta = peso_aresta + self.G.get_edge_data(caminho_mais_curto[i], caminho_mais_curto[i + 1])['weight']
             
         print("Distancia total: ", peso_aresta, "\n")
-        
+
+        #Mostra o Grafo com o Caminho minimo ressaltado
         plt.show()

@@ -36,23 +36,21 @@ def MostrarArquivo():
 
 def GravarArquivo(Grafo):
 
-    f = open("GrafoProjeto.txt", "w")
+    f = open("backupGrafoProjeto.txt", "w")
     
     f.write("6\n")
     
-    f.write(str(Grafo.NumVertices) + "\n")
+    f.write(str(Grafo.G.number_of_nodes()) + "\n")
 
-    for i in range(Grafo.NumVertices):
+    for vertice in Grafo.G.nodes():
 
-        f.write(str(Grafo.listaAdj[i].Nome) + "\n")
+        f.write(str(vertice) + "," + Grafo.listaNomes[vertice] + "\n")
         
-    f.write(str(Grafo.NumArestas) + "\n")
+    f.write(str(Grafo.G.number_of_edges()) + "\n")
 
-    for i in range(Grafo.NumVertices):
+    for u, v, weight in Grafo.G.edges(data='weight'):
 
-        for j in range(len(Grafo.listaAdj[i].ListaLigada)):
-
-            f.write(str(Grafo.listaAdj[i].Nome) + " " + Grafo.listaAdj[i].ListaLigada[j] + " " + Grafo.listaAdj[i].ValoresArestas[j] + "\n")
+        f.write(str(u) + "," + str(v) + "," + str(weight) + "\n")
     
     f.close()
 
@@ -106,10 +104,7 @@ while Run:
 
     MostrarMenu()
 
-    while True:
-
-        Escolha = InputInt("O que vamos fazer? ")
-            
+    Escolha = InputInt("O que vamos fazer? ")        
 
     if Escolha == 1:
 

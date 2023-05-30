@@ -1,0 +1,115 @@
+6
+44
+1,Centro Historico e Cultural
+2,Biblioteca Central
+3,Faculdade de Direito
+4,Escola de Engenharia 1
+5,Escolha de Engenharia 2
+6,Escolha de Engenharia_3
+7,Diretorio Central dos Estudantes
+8,Lanchonete
+9,Faculdade de Arquitetura e Urbanismo
+10,Chamberlain
+11,Capela
+12,Centro de Liberdade Economica
+13,Atendimento Financeiro
+14,Pro-Reitoria de Controle Academico
+15,Saida Itambe
+16,Centro de Educacao Filosofia e Teologia 1
+17,Saida Maria Antonia
+18,Colegio Presbiteriano Mackenzie 1
+19,Auditorio Ruy Barbosa
+20,Ginasio de Esportes
+21,Saida Piaui
+22,Metro
+23,Laboratorios de Arquitetura de Urbanismo
+24,Escola de Engenharia_4
+25,Centro de Educacao Filosofia e Teologia 2
+26,Saida Consolacao
+28,Laboratorios de Engenharia 1
+29,Quadras Poliesportivas
+30,Mackgraphe
+31,Faculdade de Computacao de Informatica
+33,Laboratorios de Engenharia 2
+35,Achados e Perdidos
+37,Laboratorios de Engenharia 3
+38,Centro de Ciencias Biologicas e da Saude
+40,Universidade Presbiteriana Mackenzie 1
+41,Edificio Joao Calvino
+43,Colegio Prebiteriano Mackenzie 2
+44,Colegio Prebiteriano Mackenzie 3
+45,Centro de Ciencias Sociais e Aplicadas
+46,Colegio Prebiteriano Mackenzie 4
+48,Colegio Prebiteriano Mackenzie 5
+49,Universidade Presbiteriana Mackenzie 2
+50,Chancelaria
+52,Quadras Esportivas
+68
+1,2,15
+1,8,20
+1,9,40
+2,3,20
+2,8,12
+8,3,12
+8,9,35
+8,10,45
+9,10,40
+9,11,10
+11,19,40
+11,16,25
+11,14,25
+15,12,25
+15,13,25
+15,43,75
+15,17,280
+13,12,15
+13,14,10
+14,16,15
+21,22,100
+21,43,135
+21,48,50
+21,46,60
+46,44,35
+46,18,40
+46,48,40
+46,45,40
+43,44,15
+45,18,10
+45,19,30
+45,29,30
+45,52,20
+48,52,50
+48,49,30
+10,3,40
+10,19,25
+7,6,5
+7,19,45
+7,25,60
+4,3,20
+4,6,40
+4,5,15
+17,5,20
+17,23,45
+17,26,410
+23,24,25
+25,24,25
+25,28,40
+25,20,20
+19,20,10
+28,31,40
+28,29,35
+30,31,20
+30,33,20
+37,33,25
+37,35,20
+37,40,15
+33,35,10
+41,26,10
+41,38,50
+41,40,50
+38,40,10
+22,26,210
+50,49,45
+50,29,70
+52,29,35
+52,45,20

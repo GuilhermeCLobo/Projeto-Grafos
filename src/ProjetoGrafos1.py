@@ -41,8 +41,6 @@ class Grafo:
 
             return True
 
-        print(Saida, Entrada)
-
         return False
         
     def RemoverAresta(self, Saida, Entrada):
